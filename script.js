@@ -138,17 +138,17 @@
       const blobR = 130 + Math.random() * 420;
       // Shift hue to pure red (around 360) to kill the pink/magenta
       const hue = 355 + Math.random() * 15;
-      const sat =  45 + Math.random() * 20;
-      // Bring lightness slightly up so it isn't literally black against the black background
-      const lit =  8  + Math.random() * 8;  
+      const sat =  65 + Math.random() * 20;
+      // Increase lightness so the red has actual color energy against the dark background
+      const lit =  20  + Math.random() * 10;  
 
       const x = cx + Math.cos(angle) * rx * t;
       const y = cy + Math.sin(angle) * ry * t;
 
       // Draw immediately to offscreen canvas
       const grd = offCtx.createRadialGradient(x, y, 0, x, y, blobR);
-      // Bring alpha back up slightly so the deep red is visible
-      const alpha = 0.015 + Math.random() * 0.025;
+      // Crank up alpha so it's clearly visible
+      const alpha = 0.06 + Math.random() * 0.06;
       
       grd.addColorStop(0,    `hsla(${hue}, ${sat}%, ${lit}%, ${alpha})`);
       grd.addColorStop(0.45, `hsla(${hue}, ${sat - 10}%, ${lit - 5}%, ${alpha * 0.55})`);

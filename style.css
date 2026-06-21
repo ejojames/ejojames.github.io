@@ -74,13 +74,13 @@ img {
 
 /* ===== STARRY SKY CANVAS ===== */
 .curves-canvas {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 2;
   pointer-events: none;
-  width: 100%;
-  /* height set dynamically by JS to match scrollHeight */
 }
 
 /* ===== SKIP TO CONTENT ===== */
@@ -925,7 +925,7 @@ img {
   transform: translateY(28px);
   transition:
     transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-  transition-delay: calc(var(--si, 0) * 110ms);
+  transition-delay: calc(var(--si, 0) * 35ms);
 }
 
 .stagger-up.revealed {
@@ -937,7 +937,7 @@ img {
   transform: scale(0.82) translateY(20px);
   transition:
     transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transition-delay: calc(var(--si, 0) * 90ms);
+  transition-delay: calc(var(--si, 0) * 25ms);
 }
 
 .stagger-pop.revealed {

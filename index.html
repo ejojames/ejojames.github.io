@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejo James</title>
+  <meta name="description" content="Portfolio of an ECE student at Model Engineering College, Thrikkakara — passionate about hardware, software, machine learning, and cloud/DevOps." />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Constellation Canvas -->
+  <canvas class="curves-canvas" id="curvesCanvas" aria-hidden="true"></canvas>
+
+  <!-- Spotlight Overlay -->
+  <div class="spotlight" aria-hidden="true"></div>
+
+  <a href="#content" class="skip-link">Skip to Content</a>
+
+  <div class="site-wrapper">
+    <!-- ========== LEFT SIDEBAR / HEADER ========== -->
+    <header class="site-header">
+      <div>
+        <h1 class="header-name hero-up" style="animation-delay:0.05s"><a href="/">Ejo James</a></h1>
+        <h2 class="header-title hero-up" style="animation-delay:0.25s">ECE Student · Hardware &amp; Software Enthusiast</h2>
+        <p class="header-tagline hero-up" style="animation-delay:0.45s">I build things at the intersection of electronics, code, and curiosity.</p>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav hero-up" style="animation-delay:0.65s" aria-label="In-page jump links">
+          <ul class="nav-list">
+            <li>
+              <a class="nav-link active" href="#about">
+                <span class="nav-indicator"></span>
+                <span class="nav-text">About</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="#currently">
+                <span class="nav-indicator"></span>
+                <span class="nav-text">Currently</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="#projects">
+                <span class="nav-indicator"></span>
+                <span class="nav-text">Projects</span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="#credentials">
+                <span class="nav-indicator"></span>
+                <span class="nav-text">Credentials</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Social Links -->
+      <ul class="social-list hero-pop" style="animation-delay:0.95s" aria-label="Social media">
+        <li>
+          <a class="social-link" href="https://github.com/ejojames" target="_blank" rel="noreferrer noopener" aria-label="GitHub (opens in a new tab)" title="GitHub">
+            <span class="sr-only">GitHub</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="social-link" href="https://www.linkedin.com/in/ejo-james-b34a2937a/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn (opens in a new tab)" title="LinkedIn">
+            <span class="sr-only">LinkedIn</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="social-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=ejojames8@gmail.com" target="_blank" rel="noreferrer noopener" aria-label="Email (opens in a new tab)" title="Email">
+            <span class="sr-only">Email</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </header>
+
+    <!-- ========== RIGHT CONTENT ========== -->
+    <main id="content" class="site-main">
+
+      <!-- ===== ABOUT ===== -->
+      <section id="about" class="section" aria-label="About me">
+        <div class="section-header">
+          <h2 class="section-title">About</h2>
+        </div>
+        <div class="about-content fade-in">
+          <p>
+            I'm a second-year Electronics and Communication Engineering student at
+            <a href="https://www.mec.ac.in/" target="_blank" rel="noreferrer noopener">Model Engineering College</a>, Thrikkakara.
+            I'm deeply passionate about both <span class="highlight">hardware and software</span> — I love the thrill of seeing a circuit come to life
+            just as much as shipping a clean piece of code.
+          </p>
+          <p>
+            My interests span across <span class="highlight">machine learning</span>,
+            <span class="highlight">cloud computing &amp; DevOps</span>, and
+            <span class="highlight">embedded systems</span>. I enjoy working on projects that sit at the intersection of
+            electronics and intelligent software — whether it's training a model, designing a PCB, or automating a deployment pipeline.
+          </p>
+          <p>
+            When I'm not studying or coding, you'll find me soldering components, tinkering with microcontrollers,
+            or exploring the latest in cloud-native technologies. I believe in learning by building, and every project
+            I take on is an opportunity to push my understanding a little further.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===== CURRENTLY ===== -->
+      <section id="currently" class="section" aria-label="Current objectives">
+        <div class="section-header">
+          <h2 class="section-title">Currently</h2>
+        </div>
+        <div class="fade-in">
+          <div class="pulse-dot">What I'm focused on</div>
+          <div class="currently-grid">
+            <div class="currently-card">
+              <div class="currently-card-content">
+                <span class="currently-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg></span>
+                <div class="currently-label">Cloud Skilling</div>
+                <p class="currently-desc">Building proficiency in GCP services, cloud architecture patterns, and preparing for certifications.</p>
+              </div>
+            </div>
+            <div class="currently-card">
+              <div class="currently-card-content">
+                <span class="currently-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg></span>
+                <div class="currently-label">PCB Designing</div>
+                <p class="currently-desc">Learning KiCad and designing custom PCBs for embedded projects — from schematic to fabrication.</p>
+              </div>
+            </div>
+            <div class="currently-card">
+              <div class="currently-card-content">
+                <span class="currently-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></span>
+                <div class="currently-label">Machine Learning</div>
+                <p class="currently-desc">Exploring deep learning fundamentals, building models with PyTorch, and working on real-world datasets.</p>
+              </div>
+            </div>
+            <div class="currently-card">
+              <div class="currently-card-content">
+                <span class="currently-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+                <div class="currently-label">Cybersecurity</div>
+                <p class="currently-desc">Exploring network security, ethical hacking fundamentals, and understanding system vulnerabilities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+      <!-- ===== PROJECTS ===== -->
+      <section id="projects" class="section" aria-label="Selected projects">
+        <div class="section-header">
+          <h2 class="section-title">Projects</h2>
+        </div>
+        <div class="fade-in">
+          <div class="project-scroll-wrapper">
+            <ul class="project-list">
+
+              <!-- ── EcoNudge (first / featured) ── -->
+              <li>
+                <div class="project-item">
+                  <img src="assets/econudge.png" alt="EcoNudge project thumbnail" class="project-thumb" style="object-position: center center;" />
+                  <div class="project-content">
+                    <h3 class="project-title">EcoNudge</h3>
+                    <p class="project-desc">
+                      A sustainability platform that nudges users toward eco-friendly habits. Features a real-time carbon footprint dashboard with live regional emission telemetry, an Eco-Simulator, and a gamified Campus Clash leaderboard — all in a sleek dark UI.
+                    </p>
+                    <ul class="tag-list" aria-label="Technologies used">
+                      <li><span class="tag">Python</span></li>
+                      <li><span class="tag">Flask</span></li>
+                      <li><span class="tag">Real-time Data</span></li>
+                      <li><span class="tag">Sustainability</span></li>
+                    </ul>
+                    <div class="project-links">
+                      <!-- Visit button -->
+                      <a href="https://econudge-backend.onrender.com/" target="_blank" rel="noreferrer noopener" class="project-btn project-btn--visit" aria-label="Visit EcoNudge live site">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                          <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                        </svg>
+                        Visit
+                      </a>
+                      <!-- Repo button -->
+                      <a href="https://github.com/ejojames/econudge" target="_blank" rel="noreferrer noopener" class="project-btn project-btn--repo" aria-label="EcoNudge GitHub repository">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        Repo
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- ── UNIverse ── -->
+              <li>
+                <div class="project-item">
+                  <img src="assets/universe.png" alt="UNIverse project thumbnail" class="project-thumb" />
+                  <div class="project-content">
+                    <h3 class="project-title">
+                      <a href="https://github.com/ejojames/UNIverse-Personalized_Learning_Roadmap_Platform/tree/main" target="_blank" rel="noreferrer noopener">
+                        UNIverse
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
+                        </svg>
+                      </a>
+                    </h3>
+                    <p class="project-desc">
+                      UNIverse is a comprehensive learning platform designed to help students and professionals navigate their career paths through AI-curated roadmaps, automated assessments, and social learning features.
+                    </p>
+                    <ul class="tag-list" aria-label="Technologies used">
+                      <li><span class="tag">AI/ML</span></li>
+                      <li><span class="tag">Web Platform</span></li>
+                      <li><span class="tag">Education</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+
+              <!-- ── Agri-Bot ── -->
+              <li>
+                <div class="project-item">
+                  <img src="assets/agribot.jpg" alt="Agri-Bot project thumbnail" class="project-thumb" />
+                  <div class="project-content">
+                    <h3 class="project-title">
+                      <a href="https://github.com/ejojames/agri-bot/tree/main" target="_blank" rel="noreferrer noopener">
+                        Agri-Bot (Geo-Stamper)
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
+                        </svg>
+                      </a>
+                    </h3>
+                    <p class="project-desc">
+                      A tracked robotic rover developed for precision agriculture. The rover utilizes a dual-stage vision system to detect weeds and diseases, executes physical stamping on targets using a 4-DOF robotic arm, and logs geo-tagged event data to a cloud database.
+                    </p>
+                    <ul class="tag-list" aria-label="Technologies used">
+                      <li><span class="tag">Robotics</span></li>
+                      <li><span class="tag">Computer Vision</span></li>
+                      <li><span class="tag">Cloud DB</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+
+              <!-- ── JARVIS ── -->
+              <li>
+                <div class="project-item">
+                  <img src="assets/jarvis.png" alt="JARVIS project thumbnail" class="project-thumb" />
+                  <div class="project-content">
+                    <h3 class="project-title">
+                      <a href="https://github.com/ejojames/AI-VOICE-ASSISTANT-JARVIS" target="_blank" rel="noreferrer noopener">
+                        JARVIS AI Assistant
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
+                        </svg>
+                      </a>
+                    </h3>
+                    <p class="project-desc">
+                      JARVIS is a Python-based desktop voice assistant application. It provides natural language command classification, local desktop automation, location-based services, and camera-based facial emotion detection within a dark-themed Tkinter user interface.
+                    </p>
+                    <ul class="tag-list" aria-label="Technologies used">
+                      <li><span class="tag">Python</span></li>
+                      <li><span class="tag">NLP</span></li>
+                      <li><span class="tag">Tkinter</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div><!-- /.project-scroll-wrapper -->
+
+          <div style="margin-top: 2rem;">
+            <a href="https://github.com/ejojames?tab=repositories" target="_blank" rel="noreferrer noopener" class="archive-link">
+              View All Projects
+              <svg class="archive-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ===== CREDENTIALS ===== -->
+      <section id="credentials" class="section" aria-label="Credentials">
+        <div class="section-header">
+          <h2 class="section-title">Credentials</h2>
+        </div>
+        <div class="fade-in">
+          <div class="credentials-scroll-wrapper">
+            <div class="credentials-grid" id="credentials-container">
+              <a href="https://www.credly.com/badges/10f73e4b-95c7-48bc-8fe7-5b72eafb2f88" target="_blank" rel="noreferrer noopener" class="badge-link" style="display: block; filter: drop-shadow(0 10px 15px rgba(94, 234, 212, 0.15));">
+                <div style="width: 180px; height: 180px; background: white; clip-path: polygon(5% 5%, 95% 5%, 95% 65%, 50% 95%, 5% 65%); display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                  <img src="https://images.credly.com/images/ea3eec65-ddad-4242-9c59-1defac0fa2d9/linkedin_thumb_image.png" alt="Google AI Essentials V1 Badge" style="width: 100%; height: 100%; object-fit: contain; transform: scale(2);">
+                </div>
+              </a>
+              <a href="https://www.credly.com/badges/e9bdaf95-7801-450e-91be-d7220e594883" target="_blank" rel="noreferrer noopener" class="badge-link" style="display: block; filter: drop-shadow(0 10px 15px rgba(94, 234, 212, 0.15));">
+                <div style="width: 180px; height: 180px; background: white; clip-path: polygon(5% 5%, 95% 5%, 95% 65%, 50% 95%, 5% 65%); display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                  <img src="https://images.credly.com/images/e5d0c55b-6904-4764-973a-25bd210ccd1a/blob" alt="Google Prompting Essentials Badge" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1.05);">
+                </div>
+              </a>
+              <a href="https://www.credly.com/badges/09f95d4a-96db-4f4e-9b88-addfd8a2624c" target="_blank" rel="noreferrer noopener" class="badge-link" style="display: block; filter: drop-shadow(0 10px 15px rgba(94, 234, 212, 0.15));">
+                <div style="width: 180px; height: 180px; background: white; border-radius: 24px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                  <img src="https://images.credly.com/images/9180921d-4a13-429e-9357-6f9706a554f0/linkedin_thumb_image.png" alt="ISC2 Candidate Badge" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1.5);">
+                </div>
+              </a>
+              <a href="https://www.credly.com/badges/1772d677-b2f4-4d3f-bd65-5d3c84621880" target="_blank" rel="noreferrer noopener" class="badge-link" style="display: block; filter: drop-shadow(0 10px 15px rgba(94, 234, 212, 0.15));">
+                <div style="width: 180px; height: 180px; background: radial-gradient(circle, rgba(255,255,255,0.15) 30%, transparent 70%); display: flex; justify-content: center; align-items: center;">
+                  <img src="https://images.credly.com/images/b40db465-587f-45eb-a854-af8630a630e7/linkedin_thumb_blob" alt="Python for Data Science Badge" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1.6);">
+                </div>
+              </a>
+              <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=AE8FDC699B5F164849D5E05B4522A440FC995A18D0F9C9A23E6A23B7C29CAE7A" target="_blank" rel="noreferrer noopener" class="badge-link" style="display: block; filter: drop-shadow(0 10px 15px rgba(94, 234, 212, 0.15));">
+                <div style="width: 180px; height: 180px; background: transparent; display: flex; justify-content: center; align-items: center;">
+                  <img src="https://brm-workforce.oracle.com/pdf/certview/images/OCI25AICFAV1.png" alt="Oracle OCI AI Foundations Badge" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1.8);">
+                </div>
+              </a>
+
+              <!-- ── Credly Embedded Badge (Static) ── -->
+              <a href="https://www.credly.com/badges/6bcb457f-3c8e-4ef7-8a55-b6df1f5bf11a" target="_blank" rel="noreferrer noopener" class="badge-link" style="display: block; filter: drop-shadow(0 10px 15px rgba(94, 234, 212, 0.15));">
+                <div style="width: 180px; height: 180px; background: transparent; display: flex; justify-content: center; align-items: center;">
+                  <img src="https://images.credly.com/images/082c8d0c-5232-4597-b6c4-6bebcc4f3046/linkedin_thumb_blob" alt="Credly Badge" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1.6);">
+                </div>
+              </a>
+            </div> <!-- closes credentials-grid -->
+          </div> <!-- closes credentials-scroll-wrapper -->
+        </div> <!-- closes fade-in -->
+      </section>
+      <!-- Bottom Spacer to allow scrolling to the final section -->
+      <div style="height: 30vh;"></div>
+      </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

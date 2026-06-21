@@ -129,7 +129,7 @@
     offCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
 
     // Render static beautifully blended red clouds
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 70; i++) {
       const angle = Math.random() * Math.PI * 2;
       const rx = 200 + Math.random() * 1200;
       const ry = 300 + Math.random() * 1500;  // Massive vertical spread to cover "About" section
@@ -139,15 +139,16 @@
       // Shift hue to pure red (around 360) to kill the pink/magenta
       const hue = 355 + Math.random() * 15;
       const sat =  45 + Math.random() * 20;
-      // Drop lightness drastically to blend into black
-      const lit =  3  + Math.random() * 6;  
+      // Bring lightness slightly up so it isn't literally black against the black background
+      const lit =  8  + Math.random() * 8;  
 
       const x = cx + Math.cos(angle) * rx * t;
       const y = cy + Math.sin(angle) * ry * t;
 
       // Draw immediately to offscreen canvas
       const grd = offCtx.createRadialGradient(x, y, 0, x, y, blobR);
-      const alpha = 0.005 + Math.random() * 0.015;
+      // Bring alpha back up slightly so the deep red is visible
+      const alpha = 0.015 + Math.random() * 0.025;
       
       grd.addColorStop(0,    `hsla(${hue}, ${sat}%, ${lit}%, ${alpha})`);
       grd.addColorStop(0.45, `hsla(${hue}, ${sat - 10}%, ${lit - 5}%, ${alpha * 0.55})`);

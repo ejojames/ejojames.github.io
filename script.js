@@ -136,9 +136,11 @@
       const t  = Math.pow(Math.random(), 0.35);
 
       const blobR = 130 + Math.random() * 420;
-      const hue = 338 + Math.random() * 28;
-      const sat =  35 + Math.random() * 15;
-      const lit =  8  + Math.random() * 8;  // Super dark and subtle
+      // Shift hue to pure red (around 360) to kill the pink/magenta
+      const hue = 355 + Math.random() * 15;
+      const sat =  45 + Math.random() * 20;
+      // Drop lightness drastically to blend into black
+      const lit =  3  + Math.random() * 6;  
 
       const x = cx + Math.cos(angle) * rx * t;
       const y = cy + Math.sin(angle) * ry * t;

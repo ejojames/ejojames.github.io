@@ -122,9 +122,9 @@
   const offCtx = offscreenCanvas.getContext('2d');
   
   function buildNebula() {
-    // Fixed viewport-relative coordinates
-    const cx = width * 0.4;
-    const cy = height * 0.35;
+    // Center it relative to the whole screen so it spans the entire height
+    const cx = width * 0.5;
+    const cy = height * 0.5;
 
     offCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
 
@@ -132,7 +132,7 @@
     for (let i = 0; i < 40; i++) {
       const angle = Math.random() * Math.PI * 2;
       const rx = 200 + Math.random() * 1200;
-      const ry = 100 + Math.random() * 700;
+      const ry = 300 + Math.random() * 1500;  // Massive vertical spread to cover "About" section
       const t  = Math.pow(Math.random(), 0.35);
 
       const blobR = 130 + Math.random() * 420;

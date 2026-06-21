@@ -116,50 +116,8 @@
   }
 
   // ── Nebula config ─────────────────────────────────────────
-  // We use an offscreen canvas to draw the nebula exactly once and never calculate it again!
-  // This drastically optimizes mobile performance and stops the dynamic drift.
-  const offscreenCanvas = document.createElement('canvas');
-  const offCtx = offscreenCanvas.getContext('2d');
-  
-  function buildNebula() {
-    // Center it relative to the whole screen so it spans the entire height
-    const cx = width * 0.5;
-    const cy = height * 0.5;
+  // Nebula is now handled entirely by CSS background in style.css for 100% reliability and 0% CPU cost.
 
-    offCtx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
-
-    // Render static beautifully blended red clouds
-    for (let i = 0; i < 70; i++) {
-      const angle = Math.random() * Math.PI * 2;
-      const rx = 200 + Math.random() * 1200;
-      const ry = 300 + Math.random() * 1500;  // Massive vertical spread to cover "About" section
-      const t  = Math.pow(Math.random(), 0.35);
-
-      const blobR = 130 + Math.random() * 420;
-      // Shift hue to pure red (around 360) to kill the pink/magenta
-      const hue = 355 + Math.random() * 15;
-      const sat =  65 + Math.random() * 20;
-      // Increase lightness so the red has actual color energy against the dark background
-      const lit =  20  + Math.random() * 10;  
-
-      const x = cx + Math.cos(angle) * rx * t;
-      const y = cy + Math.sin(angle) * ry * t;
-
-      // Draw immediately to offscreen canvas
-      const grd = offCtx.createRadialGradient(x, y, 0, x, y, blobR);
-      // Crank up alpha so it's clearly visible
-      const alpha = 0.06 + Math.random() * 0.06;
-      
-      grd.addColorStop(0,    `hsla(${hue}, ${sat}%, ${lit}%, ${alpha})`);
-      grd.addColorStop(0.45, `hsla(${hue}, ${sat - 10}%, ${lit - 5}%, ${alpha * 0.55})`);
-      grd.addColorStop(1,    `hsla(${hue}, 60%, 15%, 0)`);
-
-      offCtx.beginPath();
-      offCtx.arc(x, y, blobR, 0, Math.PI * 2);
-      offCtx.fillStyle = grd;
-      offCtx.fill();
-    }
-  }
 
   // ── Canvas resize ─────────────────────────────────────────
   function resize() {
@@ -170,10 +128,6 @@
     canvas.style.width  = width  + 'px';
     canvas.style.height = height + 'px';
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-
-    offscreenCanvas.width = width * DPR;
-    offscreenCanvas.height = height * DPR;
-    offCtx.setTransform(DPR, 0, 0, DPR, 0, 0);
   }
 
   // ── Star helpers ──────────────────────────────────────────
@@ -257,9 +211,6 @@
 
     ctx.clearRect(0, 0, width, height);
 
-    // 1. Nebula first — draw static offscreen canvas
-    ctx.drawImage(offscreenCanvas, 0, 0, width, height);
-
     // 2. Stars with twinkle
     for (const s of stars) drawStar(s, t);
 
@@ -291,14 +242,12 @@
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => { resize(); initStars(); buildNebula(); }, 200);
+    resizeTimer = setTimeout(() => { resize(); initStars(); }, 200);
   });
 
   // ── Boot ───────────────────────────────────────────────────
   resize();
   initStars();
-  // Defer nebula build until layout is painted so getBoundingClientRect is accurate
-  requestAnimationFrame(() => { buildNebula(); });
   animId = requestAnimationFrame(render);
 })();
 

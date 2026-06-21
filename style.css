@@ -81,8 +81,6 @@ img {
   bottom: 0;
   z-index: 2;
   pointer-events: none;
-  /* Deep red CSS nebula that always works and costs zero CPU */
-  background: radial-gradient(ellipse at 50% 50%, rgba(220, 0, 30, 0.18) 0%, rgba(180, 0, 20, 0.08) 45%, transparent 85%);
 }
 
 /* ===== SKIP TO CONTENT ===== */

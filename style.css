@@ -1,7 +1,5 @@
-/* ===== IMPORTS ===== */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* ===== CUSTOM PROPERTIES ===== */
 :root {
   --bg-primary: #0a0f1a;
   --bg-secondary: #111827;
@@ -20,7 +18,6 @@
   --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ===== RESET & BASE ===== */
 *,
 *::before,
 *::after {
@@ -41,7 +38,7 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: relative; /* anchor for absolute starry-sky canvas */
+  position: relative;
 }
 
 ::selection {
@@ -63,7 +60,6 @@ img {
   display: block;
 }
 
-/* ===== SPOTLIGHT OVERLAY ===== */
 .spotlight {
   pointer-events: none;
   position: fixed;
@@ -72,7 +68,6 @@ img {
   transition: background 0.3s ease;
 }
 
-/* ===== STARRY SKY CANVAS ===== */
 .curves-canvas {
   position: fixed;
   top: 0;
@@ -83,7 +78,6 @@ img {
   pointer-events: none;
 }
 
-/* ===== SKIP TO CONTENT ===== */
 .skip-link {
   position: absolute;
   left: 0;
@@ -105,7 +99,6 @@ img {
   transform: translateX(0);
 }
 
-/* ===== LAYOUT ===== */
 .site-wrapper {
   position: relative;
   z-index: 10;
@@ -124,7 +117,6 @@ img {
   }
 }
 
-/* ===== HEADER / LEFT SIDEBAR ===== */
 .site-header {
   padding-bottom: 4rem;
 }
@@ -178,7 +170,6 @@ img {
   font-size: 0.95rem;
 }
 
-/* ===== NAVIGATION ===== */
 .nav {
   display: none;
 }
@@ -233,7 +224,6 @@ img {
   color: var(--text-primary);
 }
 
-/* ===== SOCIAL LINKS ===== */
 .social-list {
   display: flex;
   align-items: center;
@@ -265,7 +255,6 @@ img {
   height: 1.5rem;
 }
 
-/* ===== MAIN CONTENT ===== */
 .site-main {
   padding-top: 0;
 }
@@ -277,7 +266,6 @@ img {
   }
 }
 
-/* ===== SECTIONS ===== */
 .section {
   margin-bottom: 6rem;
   scroll-margin-top: 6rem;
@@ -290,7 +278,6 @@ img {
   }
 }
 
-/* Sticky section header (mobile/tablet) */
 .section-header {
   position: sticky;
   top: 0;
@@ -311,7 +298,6 @@ img {
     background: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    /* Screen reader only on desktop — nav handles it */
     clip: rect(0, 0, 0, 0);
     clip-path: inset(50%);
     height: 1px;
@@ -329,7 +315,6 @@ img {
   color: var(--text-primary);
 }
 
-/* ===== ABOUT SECTION ===== */
 .about-content {
   --corner-size: 35px;
   --corner-weight: 2px;
@@ -337,16 +322,12 @@ img {
   padding: 2rem;
   border-radius: 12px;
   background:
-    /* Top-left corner — green */
     linear-gradient(90deg, #21D789, #21D789) 0 0 / var(--corner-size) var(--corner-weight) no-repeat,
     linear-gradient(180deg, #21D789, #21D789) 0 0 / var(--corner-weight) var(--corner-size) no-repeat,
-    /* Top-right corner — yellow */
     linear-gradient(90deg, #FCF84A, #FCF84A) 100% 0 / var(--corner-size) var(--corner-weight) no-repeat,
     linear-gradient(180deg, #FCF84A, #FCF84A) 100% 0 / var(--corner-weight) var(--corner-size) no-repeat,
-    /* Bottom-right corner — orange */
     linear-gradient(90deg, #FC801D, #FC801D) 100% 100% / var(--corner-size) var(--corner-weight) no-repeat,
     linear-gradient(180deg, #FC801D, #FC801D) 100% 100% / var(--corner-weight) var(--corner-size) no-repeat,
-    /* Bottom-left corner — green-to-orange blend */
     linear-gradient(90deg, #21D789, #21D789) 0 100% / var(--corner-size) var(--corner-weight) no-repeat,
     linear-gradient(180deg, #FC801D, #FC801D) 0 100% / var(--corner-weight) var(--corner-size) no-repeat;
 }
@@ -393,7 +374,6 @@ img {
   font-weight: 500;
 }
 
-/* ===== CURRENTLY SECTION ===== */
 .currently-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -466,7 +446,6 @@ img {
   line-height: 1.5;
 }
 
-/* Pulse dot */
 .pulse-dot {
   display: inline-flex;
   align-items: center;
@@ -499,7 +478,6 @@ img {
   }
 }
 
-/* ===== EXPERIENCE CARDS ===== */
 .experience-list {
   display: flex;
   flex-direction: column;
@@ -524,7 +502,6 @@ img {
   }
 }
 
-/* Hover card glow */
 .experience-item::before {
   content: '';
   position: absolute;
@@ -540,7 +517,6 @@ img {
   opacity: 1;
 }
 
-/* Sibling dimming */
 .experience-list:hover .experience-item {
   opacity: 0.5;
 }
@@ -604,7 +580,6 @@ img {
   color: var(--text-secondary);
 }
 
-/* ===== TECH TAGS ===== */
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -624,34 +599,33 @@ img {
   line-height: 1.5;
 }
 
-/* ===== PROJECTS ===== */
-
-/* Vertical scroll wrapper */
 .project-scroll-wrapper {
   position: relative;
   max-height: 480px;
   overflow-y: auto;
   overflow-x: hidden;
-  /* slim accent scrollbar */
   scrollbar-width: thin;
   scrollbar-color: rgba(94, 234, 212, 0.25) transparent;
-  /* padding to keep cards legible near the fade */
   padding-bottom: 1rem;
 }
 
 .project-scroll-wrapper::-webkit-scrollbar {
   width: 4px;
 }
-.project-scroll-wrapper::-webkit-scrollbar-track { background: transparent; }
+
+.project-scroll-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .project-scroll-wrapper::-webkit-scrollbar-thumb {
   background: rgba(94, 234, 212, 0.25);
   border-radius: 9999px;
 }
+
 .project-scroll-wrapper::-webkit-scrollbar-thumb:hover {
   background: rgba(94, 234, 212, 0.45);
 }
 
-/* Fade hint at the bottom */
 .project-scroll-wrapper::after {
   content: '';
   position: sticky;
@@ -767,7 +741,6 @@ img {
   color: var(--text-secondary);
 }
 
-/* Project action buttons (Visit / Repo) */
 .project-links {
   display: flex;
   gap: 0.5rem;
@@ -797,12 +770,12 @@ img {
   flex-shrink: 0;
 }
 
-/* Visit — accent teal outline */
 .project-btn--visit {
   color: var(--accent);
   border-color: rgba(94, 234, 212, 0.35);
   background: rgba(94, 234, 212, 0.06);
 }
+
 .project-btn--visit:hover {
   background: rgba(94, 234, 212, 0.15);
   border-color: var(--accent);
@@ -811,12 +784,12 @@ img {
   box-shadow: 0 4px 14px rgba(94, 234, 212, 0.12);
 }
 
-/* Repo — subtle slate outline */
 .project-btn--repo {
   color: var(--text-secondary);
   border-color: rgba(100, 116, 139, 0.25);
   background: transparent;
 }
+
 .project-btn--repo:hover {
   color: var(--text-primary);
   border-color: rgba(148, 163, 184, 0.45);
@@ -824,7 +797,6 @@ img {
   transform: translateY(-1px);
 }
 
-/* ===== RESUME LINK ===== */
 .resume-link {
   display: inline-flex;
   align-items: baseline;
@@ -852,7 +824,6 @@ img {
   transform: translate(4px, -2px);
 }
 
-/* ===== FOOTER ===== */
 .site-footer {
   padding: 2rem 0 4rem;
   font-size: 0.8rem;
@@ -871,7 +842,6 @@ img {
   color: var(--accent);
 }
 
-/* ===== UTILITY ===== */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -884,9 +854,6 @@ img {
   border-width: 0;
 }
 
-/* ===== ANIMATION SYSTEM ===== */
-
-/* ── Hero: fires on page load, no scroll needed ── */
 @keyframes heroSlideUp {
   from { opacity: 0; transform: translateY(36px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -908,7 +875,6 @@ img {
   animation: heroPop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* ── Fade-in: scroll-triggered section wrapper (kept for compatibility) ── */
 .fade-in {
   opacity: 0;
   transform: translateY(16px);
@@ -920,11 +886,9 @@ img {
   transform: translateY(0);
 }
 
-/* ── Stagger-up: scroll-triggered child entrance (transform only — safe inside fade-in parents) ── */
 .stagger-up {
   transform: translateY(28px);
-  transition:
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: calc(var(--si, 0) * 35ms);
 }
 
@@ -932,11 +896,9 @@ img {
   transform: translateY(0);
 }
 
-/* ── Stagger-pop: spring entrance for badges / cards ── */
 .stagger-pop {
   transform: scale(0.82) translateY(20px);
-  transition:
-    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   transition-delay: calc(var(--si, 0) * 25ms);
 }
 
@@ -944,13 +906,10 @@ img {
   transform: scale(1) translateY(0);
 }
 
-
-/* ===== CREDENTIALS HORIZONTAL SCROLL ===== */
 .credentials-scroll-wrapper {
   position: relative;
 }
 
-/* Fade-out edges to hint at scrollable content */
 .credentials-scroll-wrapper::before,
 .credentials-scroll-wrapper::after {
   content: '';
@@ -976,11 +935,11 @@ img {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: flex-start;   /* don't stretch children — lets Credly iframe use its own height */
+  align-items: flex-start;
   gap: 1.75rem;
   overflow-x: auto;
   overflow-y: visible;
-  min-height: 280px;         /* room for the 270px Credly iframe */
+  min-height: 280px;
   padding: 1rem 0.5rem 1.25rem;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -993,22 +952,23 @@ img {
   cursor: grabbing;
 }
 
-/* Webkit scrollbar */
 .credentials-grid::-webkit-scrollbar {
   height: 4px;
 }
+
 .credentials-grid::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .credentials-grid::-webkit-scrollbar-thumb {
   background: rgba(94, 234, 212, 0.25);
   border-radius: 9999px;
 }
+
 .credentials-grid::-webkit-scrollbar-thumb:hover {
   background: rgba(94, 234, 212, 0.45);
 }
 
-/* Each badge snaps into place and lifts on hover */
 .badge-link {
   flex: 0 0 auto;
   scroll-snap-align: start;
@@ -1021,7 +981,6 @@ img {
           drop-shadow(0 6px 12px rgba(94, 234, 212, 0.15)) !important;
 }
 
-/* ===== ARCHIVE LINK ===== */
 .archive-link {
   display: inline-flex;
   align-items: center;

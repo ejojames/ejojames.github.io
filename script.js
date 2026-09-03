@@ -1,17 +1,10 @@
-// ===== CURSOR SPOTLIGHT =====
-(function () {
-  const spotlight = document.querySelector('.spotlight');
-  if (!spotlight) return;
+var spotlight = document.querySelector('.spotlight');
 
-  // Only enable on large screens (matches the lg breakpoint)
-  const mediaQuery = window.matchMedia('(min-width: 1024px)');
+if (spotlight) {
+  var mediaQuery = window.matchMedia('(min-width: 1024px)');
 
   function handleMouseMove(e) {
-    spotlight.style.background = `radial-gradient(
-      650px circle at ${e.clientX}px ${e.clientY}px,
-      rgba(29, 78, 216, 0.22),
-      transparent 80%
-    )`;
+    spotlight.style.background = 'radial-gradient(650px circle at ' + e.clientX + 'px ' + e.clientY + 'px, rgba(29, 78, 216, 0.22), transparent 80%)';
   }
 
   function toggleSpotlight(mq) {
@@ -25,29 +18,25 @@
 
   toggleSpotlight(mediaQuery);
   mediaQuery.addEventListener('change', toggleSpotlight);
-})();
+}
 
-// ===== SCROLL-SPY (ACTIVE NAV) =====
-(function () {
-  const sections = document.querySelectorAll('.section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
+var sections = document.querySelectorAll('.section[id]');
+var navLinks = document.querySelectorAll('.nav-link');
 
-  if (!sections.length || !navLinks.length) return;
-
-  const observerOptions = {
+if (sections.length > 0 && navLinks.length > 0) {
+  var observerOptions = {
     root: null,
     rootMargin: '-20% 0px -60% 0px',
-    threshold: 0,
+    threshold: 0
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+  var spyObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        const id = entry.target.id;
-
-        navLinks.forEach((link) => {
+        var id = entry.target.id;
+        navLinks.forEach(function(link) {
           link.classList.remove('active');
-          if (link.getAttribute('href') === `#${id}`) {
+          if (link.getAttribute('href') === '#' + id) {
             link.classList.add('active');
           }
         });
@@ -55,102 +44,97 @@
     });
   }, observerOptions);
 
-  sections.forEach((section) => observer.observe(section));
-})();
+  sections.forEach(function(section) {
+    spyObserver.observe(section);
+  });
+}
 
-// ===== FADE-IN ON SCROLL =====
-(function () {
-  const fadeElements = document.querySelectorAll('.fade-in');
-  if (!fadeElements.length) return;
+var fadeElements = document.querySelectorAll('.fade-in');
 
-  const fadeObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          fadeObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
+if (fadeElements.length > 0) {
+  var fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
 
-  fadeElements.forEach((el) => fadeObserver.observe(el));
-})();
+  fadeElements.forEach(function(el) {
+    fadeObserver.observe(el);
+  });
+}
 
-// ===== STARRY SKY + RED NEBULA (CANVAS) =====
-(function () {
-  const canvas = document.getElementById('curvesCanvas');
-  if (!canvas) return;
+var canvas = document.getElementById('curvesCanvas');
 
-  const ctx = canvas.getContext('2d');
-  const DPR = Math.min(window.devicePixelRatio || 1, 2);
-  let width, height;
-  let animId = null;
-  let lastFrame = 0;
-  const FPS = 30;
-  const FRAME_INTERVAL = 1000 / FPS;
+if (canvas) {
+  var ctx = canvas.getContext('2d');
+  var DPR = Math.min(window.devicePixelRatio || 1, 2);
+  var width = 0;
+  var height = 0;
+  var animId = null;
+  var lastFrame = 0;
+  var FPS = 30;
+  var FRAME_INTERVAL = 1000 / FPS;
 
-  // ── Star config ──────────────────────────────────────────
-  const STAR_COUNT = 120;
-  const SHOOTING_STAR_INTERVAL = 6000;
-  let lastShootingStarTime = 0;
-  let stars = [];
-  let shootingStars = [];
+  var STAR_COUNT = 120;
+  var SHOOTING_STAR_INTERVAL = 6000;
+  var lastShootingStarTime = 0;
+  var stars = [];
+  var shootingStars = [];
 
-  const SIZES = [
+  var SIZES = [
     { min: 0.3, max: 0.7, weight: 55 },
     { min: 0.7, max: 1.2, weight: 30 },
     { min: 1.2, max: 1.8, weight: 10 },
-    { min: 1.8, max: 2.5, weight: 5  },
+    { min: 1.8, max: 2.5, weight: 5 }
   ];
 
   function pickSize() {
-    const roll = Math.random() * 100;
-    let acc = 0;
-    for (const s of SIZES) {
-      acc += s.weight;
-      if (roll < acc) return s.min + Math.random() * (s.max - s.min);
+    var roll = Math.random() * 100;
+    var acc = 0;
+    for (var i = 0; i < SIZES.length; i++) {
+      acc += SIZES[i].weight;
+      if (roll < acc) {
+        return SIZES[i].min + Math.random() * (SIZES[i].max - SIZES[i].min);
+      }
     }
     return 1;
   }
 
-  // ── Nebula config ─────────────────────────────────────────
-  // Nebula is now handled entirely by CSS background in style.css for 100% reliability and 0% CPU cost.
-
-
-  // ── Canvas resize ─────────────────────────────────────────
   function resize() {
-    width  = window.innerWidth;
-    height = window.innerHeight; // Fixed canvas to screen size
-    canvas.width  = width  * DPR;
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * DPR;
     canvas.height = height * DPR;
-    canvas.style.width  = width  + 'px';
+    canvas.style.width = width + 'px';
     canvas.style.height = height + 'px';
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
   }
 
-  // ── Star helpers ──────────────────────────────────────────
   function createStar() {
-    const r = pickSize();
-    const baseAlpha = 0.08 + Math.random() * 0.28;
+    var r = pickSize();
+    var baseAlpha = 0.08 + Math.random() * 0.28;
     return {
       x: Math.random() * width,
       y: Math.random() * height,
-      r,
+      r: r,
       hue: Math.random() < 0.15 ? 200 + Math.random() * 40 : 0,
       sat: Math.random() < 0.15 ? 60 : 0,
-      baseAlpha,
+      baseAlpha: baseAlpha,
       alpha: baseAlpha,
       twinkleSpeed: 0.3 + Math.random() * 1.2,
       twinkleDepth: 0.4 + Math.random() * 0.55,
-      phase: Math.random() * Math.PI * 2,
+      phase: Math.random() * Math.PI * 2
     };
   }
 
   function initStars() {
     stars = [];
-    for (let i = 0; i < STAR_COUNT; i++) stars.push(createStar());
+    for (var i = 0; i < STAR_COUNT; i++) {
+      stars.push(createStar());
+    }
   }
 
   function createShootingStar() {
@@ -161,19 +145,19 @@
       vy: 2 + Math.random() * 3,
       length: 80 + Math.random() * 80,
       alpha: 0.6,
-      life: 1.0,
+      life: 1.0
     };
   }
 
   function drawStar(s, t) {
-    const osc = Math.sin(t * s.twinkleSpeed * Math.PI * 2 + s.phase);
+    var osc = Math.sin(t * s.twinkleSpeed * Math.PI * 2 + s.phase);
     s.alpha = s.baseAlpha * (1 - s.twinkleDepth * 0.5 + s.twinkleDepth * 0.5 * osc);
     s.alpha = Math.max(0.02, Math.min(0.55, s.alpha));
 
     if (s.r > 1.4) {
-      const grd = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 3);
-      grd.addColorStop(0, `hsla(${s.hue},${s.sat}%,100%,${s.alpha * 0.5})`);
-      grd.addColorStop(1, `hsla(${s.hue},${s.sat}%,100%,0)`);
+      var grd = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 3);
+      grd.addColorStop(0, 'hsla(' + s.hue + ',' + s.sat + '%,100%,' + (s.alpha * 0.5) + ')');
+      grd.addColorStop(1, 'hsla(' + s.hue + ',' + s.sat + '%,100%,0)');
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r * 3, 0, Math.PI * 2);
       ctx.fillStyle = grd;
@@ -182,17 +166,17 @@
 
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-    ctx.fillStyle = `hsla(${s.hue},${s.sat}%,100%,${s.alpha})`;
+    ctx.fillStyle = 'hsla(' + s.hue + ',' + s.sat + '%,100%,' + s.alpha + ')';
     ctx.fill();
   }
 
   function drawShootingStar(ss) {
-    const len = Math.hypot(ss.vx, ss.vy);
-    const tailX = ss.x - ss.vx * (ss.length / len);
-    const tailY = ss.y - ss.vy * (ss.length / len);
-    const grd = ctx.createLinearGradient(tailX, tailY, ss.x, ss.y);
-    grd.addColorStop(0, `rgba(255,255,255,0)`);
-    grd.addColorStop(1, `rgba(255,255,255,${ss.alpha * 0.45})`);
+    var len = Math.hypot(ss.vx, ss.vy);
+    var tailX = ss.x - ss.vx * (ss.length / len);
+    var tailY = ss.y - ss.vy * (ss.length / len);
+    var grd = ctx.createLinearGradient(tailX, tailY, ss.x, ss.y);
+    grd.addColorStop(0, 'rgba(255,255,255,0)');
+    grd.addColorStop(1, 'rgba(255,255,255,' + (ss.alpha * 0.45) + ')');
     ctx.beginPath();
     ctx.moveTo(tailX, tailY);
     ctx.lineTo(ss.x, ss.y);
@@ -201,158 +185,155 @@
     ctx.stroke();
   }
 
-  // ── Render loop ───────────────────────────────────────────
   function render(timestamp) {
     animId = requestAnimationFrame(render);
     if (timestamp - lastFrame < FRAME_INTERVAL) return;
-    const dt = (timestamp - lastFrame) / 1000;
+    var dt = (timestamp - lastFrame) / 1000;
     lastFrame = timestamp;
-    const t = timestamp / 1000;
+    var t = timestamp / 1000;
 
     ctx.clearRect(0, 0, width, height);
 
-    // 2. Stars with twinkle
-    for (const s of stars) drawStar(s, t);
+    for (var i = 0; i < stars.length; i++) {
+      drawStar(stars[i], t);
+    }
 
-    // 3. Shooting stars
     if (timestamp - lastShootingStarTime > SHOOTING_STAR_INTERVAL) {
       shootingStars.push(createShootingStar());
       lastShootingStarTime = timestamp;
     }
-    shootingStars = shootingStars.filter(ss => ss.life > 0);
-    for (const ss of shootingStars) {
+
+    var activeShootingStars = [];
+    for (var j = 0; j < shootingStars.length; j++) {
+      var ss = shootingStars[j];
       ss.x += ss.vx;
       ss.y += ss.vy;
       ss.life -= dt * 1.2;
       ss.alpha = ss.life * 0.6;
-      drawShootingStar(ss);
+      if (ss.life > 0) {
+        drawShootingStar(ss);
+        activeShootingStars.push(ss);
+      }
     }
+    shootingStars = activeShootingStars;
   }
 
-  // ── Events ─────────────────────────────────────────────────
-  document.addEventListener('visibilitychange', () => {
+  document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
-      cancelAnimationFrame(animId); animId = null;
+      cancelAnimationFrame(animId);
+      animId = null;
     } else {
       lastFrame = performance.now();
       animId = requestAnimationFrame(render);
     }
   });
 
-  let resizeTimer;
-  window.addEventListener('resize', () => {
+  var resizeTimer;
+  window.addEventListener('resize', function() {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => { resize(); initStars(); }, 200);
+    resizeTimer = setTimeout(function() {
+      resize();
+      initStars();
+    }, 200);
   });
 
-  // ── Boot ───────────────────────────────────────────────────
   resize();
   initStars();
   animId = requestAnimationFrame(render);
-})();
+}
 
-// ===== CREDENTIALS DRAG-TO-SCROLL =====
-(function () {
-  const strip = document.getElementById('credentials-container');
-  if (!strip) return;
+var strip = document.getElementById('credentials-container');
 
-  let isDown   = false;
-  let startX   = 0;
-  let scrollLeft = 0;
-  let moved    = false;
+if (strip) {
+  var isDown = false;
+  var startX = 0;
+  var scrollLeft = 0;
+  var moved = false;
 
-  strip.addEventListener('mousedown', (e) => {
+  strip.addEventListener('mousedown', function(e) {
     isDown = true;
-    moved  = false;
+    moved = false;
     startX = e.pageX - strip.offsetLeft;
     scrollLeft = strip.scrollLeft;
     strip.style.userSelect = 'none';
   });
 
-  document.addEventListener('mouseup', (e) => {
+  document.addEventListener('mouseup', function() {
     if (!isDown) return;
     isDown = false;
     strip.style.userSelect = '';
 
-    // If the user dragged more than 5px, swallow the click so the badge link
-    // doesn't open when they were just scrolling
     if (moved) {
-      strip.querySelectorAll('a').forEach(a => {
-        const guard = (ev) => { ev.preventDefault(); a.removeEventListener('click', guard); };
+      var links = strip.querySelectorAll('a');
+      links.forEach(function(a) {
+        function guard(ev) {
+          ev.preventDefault();
+          a.removeEventListener('click', guard);
+        }
         a.addEventListener('click', guard);
       });
     }
   });
 
-  document.addEventListener('mousemove', (e) => {
+  document.addEventListener('mousemove', function(e) {
     if (!isDown) return;
     e.preventDefault();
-    const x    = e.pageX - strip.offsetLeft;
-    const walk = (x - startX) * 1.4;    // 1.4× multiplier for snappy feel
-      strip.scrollLeft = scrollLeft - walk;
-    if (Math.abs(walk) > 5) moved = true;
+    var x = e.pageX - strip.offsetLeft;
+    var walk = (x - startX) * 1.4;
+    strip.scrollLeft = scrollLeft - walk;
+    if (Math.abs(walk) > 5) {
+      moved = true;
+    }
   });
-})();
+}
 
+var groups = [
+  { sel: '.about-content p', cls: 'stagger-up' },
+  { sel: '.currently-card', cls: 'stagger-up' },
+  { sel: '.project-item', cls: 'stagger-up' },
+  { sel: '.badge-link', cls: 'stagger-pop' }
+];
 
-// ===== STAGGER ENTRANCE ENGINE =====
-(function () {
-  // ── 1. Auto-assign stagger classes + --si index to element groups ──────────
-  // Each group gets its own class and is indexed independently.
-  // stagger-up  → transform-only (safe inside fade-in parents, no opacity conflict)
-  // stagger-pop → spring-scale (for badges)
-  const groups = [
-    { sel: '.about-content p',  cls: 'stagger-up'  },
-    { sel: '.currently-card',   cls: 'stagger-up'  },
-    { sel: '.project-item',     cls: 'stagger-up'  },
-    { sel: '.badge-link',       cls: 'stagger-pop' },
-  ];
+groups.forEach(function(group) {
+  var elements = document.querySelectorAll(group.sel);
+  elements.forEach(function(el, i) {
+    el.classList.add(group.cls);
+    el.style.setProperty('--si', i);
+  });
+});
 
-  groups.forEach(({ sel, cls }) => {
-    document.querySelectorAll(sel).forEach((el, i) => {
-      el.classList.add(cls);
-      el.style.setProperty('--si', i);
+var staggerObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      staggerObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0,
+  rootMargin: '50px 0px 50px 0px'
+});
+
+var staggerElements = document.querySelectorAll('.stagger-up, .stagger-pop');
+staggerElements.forEach(function(el) {
+  staggerObserver.observe(el);
+});
+
+var sectionObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (!entry.isIntersecting) return;
+    var children = entry.target.querySelectorAll('.stagger-up, .stagger-pop');
+    children.forEach(function(el) {
+      el.classList.add('revealed');
     });
+    sectionObserver.unobserve(entry.target);
   });
+}, {
+  threshold: 0,
+  rootMargin: '100px 0px 100px 0px'
+});
 
-  // ── 2. Single observer fires .revealed when element enters viewport ─────────
-  // Because all elements in a group are often visible at the same time,
-  // the observer fires for all of them simultaneously — the CSS --si delay
-  // creates the visual stagger (first card 0ms, second 110ms, third 220ms …).
-  const staggerObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          staggerObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0, rootMargin: '50px 0px 50px 0px' } // Huge margin to trigger before even scrolling!
-  );
-
-  document.querySelectorAll('.stagger-up, .stagger-pop').forEach((el) => {
-    staggerObserver.observe(el);
-  });
-
-  // ── 3. Section-level observer: when a section becomes visible,
-  //       immediately reveal any stagger children not yet intersecting ─────────
-  // This prevents elements visible on first load from never getting .revealed
-  // because they entered the viewport before the observer was attached.
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target
-          .querySelectorAll('.stagger-up, .stagger-pop')
-          .forEach((el) => el.classList.add('revealed'));
-        sectionObserver.unobserve(entry.target);
-      });
-    },
-    { threshold: 0, rootMargin: '100px 0px 100px 0px' }
-  );
-
-  document.querySelectorAll('.section').forEach((sec) => {
-    sectionObserver.observe(sec);
-  });
-})();
+var sectionsList = document.querySelectorAll('.section');
+sectionsList.forEach(function(sec) {
+  sectionObserver.observe(sec);
+});

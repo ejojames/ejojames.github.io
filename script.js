@@ -336,4 +336,8 @@ var sectionObserver = new IntersectionObserver(function(entries) {
 var sectionsList = document.querySelectorAll('.section');
 sectionsList.forEach(function(sec) {
   sectionObserver.observe(sec);
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> e9d957b (Update project files)
